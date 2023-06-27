@@ -1,0 +1,40 @@
+@model OrganizMvc.Models.ProjetoViewModel
+@{
+    ViewBag.Title = "Detalhes do Projeto";
+}
+<h2>Detalhes do Projeto</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.Id)</dt>
+        <dd>@Html.DisplayFor(model => model.Id)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Nome)</dt>
+        <dd>@Html.DisplayFor(model => model.Nome)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Materia)</dt>
+        <dd>@Html.DisplayFor(model => model.Materia)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Prazo)</dt>
+        <dd>@Html.DisplayFor(model => model.Prazo)</dd>
+        
+        <dt>@Html.DisplayNameFor(model => model.Inicio)</dt>
+        <dd>@Html.DisplayFor(model => model.Inicio)</dd>
+
+        <dt>@Html.DisplayName("Temas")</dt>
+        <dd>
+            @foreach (var item in Model.Temas)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Id) </td>
+                    <td>@Html.DisplayFor(modelItem => item.Nome) </td>
+                    <td>@Html.DisplayFor(modelItem => item.Responsavel.Nome)</td>
+                </tr>
+            }
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id}) |
+    @Html.ActionLink("Retornar", "Index")
+</p>

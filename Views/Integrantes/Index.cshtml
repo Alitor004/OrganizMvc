@@ -1,0 +1,43 @@
+<!--Namespace da classe de Modelo para esta view-->
+@model IEnumerable<OrganizMvc.Models.IntegranteViewModel>
+
+@if (@TempData["Mensagem"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        
+        @Html.Raw(TempData["Mensagem"])</div>
+}
+<!--Configuração para exibir mensagem de erro -->
+@if (@TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @Html.Raw(TempData["MensagemErro"])</div>
+}
+
+<!--Inclua os TempData para Sucesso e Erro aqui, conforme exemplo na view de Autenticação-->
+@{ViewBag.Title = "Integrantes"; }<!--Título da página para o navegador-->
+<h2>Relação de Integrantes</h2><!--Título da página-->
+<p> <!--Links apontando para views na mesma pasta-->
+    @Html.ActionLink("Criar Novo Integrante", "Create")
+</p>
+<table class="table">
+    <tr><!--Títulos das colunas da tabela-->
+        <th>@Html.DisplayNameFor(model => model.Id)</th>
+        <th>@Html.DisplayNameFor(model => model.Nome)</th>
+        <th></th>
+    </tr>
+    <!--Looping para escrever os dados na tabela-->
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Id) </td>
+            <td>@Html.DisplayFor(modelItem => item.Nome) </td>
+
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id } ) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Deletar", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,52 @@
+@model OrganizMvc.Models.ProjetoViewModel
+@{
+    ViewBag.Title = "Editar Projeto"; 
+} 
+<h2>Editar dados do Projeto</h2>
+@using (Html.BeginForm()) 
+{ 
+    @Html.AntiForgeryToken() 
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control",
+            @readonly = "readonly" } })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Materia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.DropDownListFor(model => model.Materia, Html.GetEnumSelectList(typeof(OrganizMvc.Models.Enuns.ClasseEnum)),
+                    "---Selecione---", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Prazo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(model => model.Prazo, "{0:dd-MM-yyy}", new { @class = "form-control", placeholder = "DD/MM/AAAA" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Inicio, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(model => model.Inicio, "{0:dd-MM-yyy}", new { @class = "form-control", placeholder = "DD/MM/AAAA" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-6">
+            <input type="submit" value="Salvar alterações" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+} 
+<div>
+    @Html.ActionLink("Retornar", "Index") 
+</div>
