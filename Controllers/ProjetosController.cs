@@ -110,9 +110,6 @@ namespace OrganizMvc.Controllers
             try
             {
                 HttpClient httpClient = new HttpClient();
-                string token = HttpContext.Session.GetString("SessionTokenUsuario");
-
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 HttpResponseMessage response = await httpClient.GetAsync(uriBase + id.ToString());
 
                 string serialized = await response.Content.ReadAsStringAsync();
@@ -140,9 +137,6 @@ namespace OrganizMvc.Controllers
             try
             {
                 HttpClient httpClient = new HttpClient();
-                string token = HttpContext.Session.GetString("SessionTokenUsuario");
-
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 var content = new StringContent(JsonConvert.SerializeObject(p));
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
@@ -151,7 +145,32 @@ namespace OrganizMvc.Controllers
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    TempData["Mensagem"] = string.Format("Projeto {0}, Id {1} salvo comsucesso!!!", p.Nome, serialized);
+                    TempData["Mensagem"] = string.Format("Projeto {0}, Id {0} salvo comsucesso!!!", p.Nome, serialized);
+                    return RedirectToAction("Index");
+                }
+                else
+                    throw new System.Exception(serialized);
+            }
+            catch (System.Exception ex)
+            {
+                TempData["MensagemErro"] = ex.Message;
+                return RedirectToAction("Index");
+            }
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> DeleteAsync(int id)
+        {
+            try
+            {
+                HttpClient httpClient = new HttpClient();
+
+                HttpResponseMessage response = await httpClient.DeleteAsync(uriBase + id.ToString());
+                string serialized = await response.Content.ReadAsStringAsync();
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    TempData["Mensagem"] = string.Format("Projeto Id {0} removido com sucesso!!!", id);
                     return RedirectToAction("Index");
                 }
                 else

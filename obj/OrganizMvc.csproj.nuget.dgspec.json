@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\2DS\\Alitor\\DSI\\OrganizEtec\\OrganizMvc\\OrganizMvc.csproj": {}
+    "F:\\2DS\\Alitor\\DSI\\OrganizEtec\\OrganizMvc\\OrganizMvc.csproj": {}
   },
   "projects": {
-    "D:\\2DS\\Alitor\\DSI\\OrganizEtec\\OrganizMvc\\OrganizMvc.csproj": {
+    "F:\\2DS\\Alitor\\DSI\\OrganizEtec\\OrganizMvc\\OrganizMvc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\2DS\\Alitor\\DSI\\OrganizEtec\\OrganizMvc\\OrganizMvc.csproj",
+        "projectUniqueName": "F:\\2DS\\Alitor\\DSI\\OrganizEtec\\OrganizMvc\\OrganizMvc.csproj",
         "projectName": "OrganizMvc",
-        "projectPath": "D:\\2DS\\Alitor\\DSI\\OrganizEtec\\OrganizMvc\\OrganizMvc.csproj",
-        "packagesPath": "C:\\Users\\alevi\\.nuget\\packages\\",
-        "outputPath": "D:\\2DS\\Alitor\\DSI\\OrganizEtec\\OrganizMvc\\obj\\",
+        "projectPath": "F:\\2DS\\Alitor\\DSI\\OrganizEtec\\OrganizMvc\\OrganizMvc.csproj",
+        "packagesPath": "C:\\Users\\EtecHAS\\.nuget\\packages\\",
+        "outputPath": "F:\\2DS\\Alitor\\DSI\\OrganizEtec\\OrganizMvc\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\alevi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\EtecHAS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,7 +27,6 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -70,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

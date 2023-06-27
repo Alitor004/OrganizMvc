@@ -137,7 +137,7 @@ namespace OrganizMvc.Controllers
             try
             {
                 HttpClient httpClient = new HttpClient();
-                var content = new StringContent(JsonConvert.SerializeObject(p));
+                var content = new StringContent(JsonConvert.SerializeObject(i));
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
                 HttpResponseMessage response = await httpClient.PutAsync(uriBase, content);
@@ -146,6 +146,31 @@ namespace OrganizMvc.Controllers
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     TempData["Mensagem"] = string.Format("Integrante {0}, Id {1} salvo comsucesso!!!", i.Nome, serialized);
+                    return RedirectToAction("Index");
+                }
+                else
+                    throw new System.Exception(serialized);
+            }
+            catch (System.Exception ex)
+            {
+                TempData["MensagemErro"] = ex.Message;
+                return RedirectToAction("Index");
+            }
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> DeleteAsync(int id)
+        {
+            try
+            {
+                HttpClient httpClient = new HttpClient();
+
+                HttpResponseMessage response = await httpClient.DeleteAsync(uriBase + id.ToString());
+                string serialized = await response.Content.ReadAsStringAsync();
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    TempData["Mensagem"] = string.Format("Integrante Id {0} removido com sucesso!!!", id);
                     return RedirectToAction("Index");
                 }
                 else

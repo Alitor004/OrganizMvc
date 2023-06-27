@@ -1,5 +1,5 @@
 <!--Namespace da classe de Modelo para esta view-->
-@model IEnumerable<OrganizMvc.Models.ProjetoViewModel>
+@model IEnumerable<OrganizMvc.Models.TemaViewModel>
 
 @if (@TempData["Mensagem"] != null)
 {
@@ -15,17 +15,17 @@
 }
 
 <!--Inclua os TempData para Sucesso e Erro aqui, conforme exemplo na view de Autenticação-->
-@{ViewBag.Title = "Projetos"; }<!--Título da página para o navegador-->
-<h2>Relação de Projetos</h2><!--Título da página-->
+@{ViewBag.Title = "Temas"; }<!--Título da página para o navegador-->
+<h2>Relação de Temas</h2><!--Título da página-->
 <p> <!--Links apontando para views na mesma pasta-->
-    @Html.ActionLink("Criar Novo Projeto", "Create")
+    @Html.ActionLink("Criar Novo Tema", "Create")
 </p>
 <table class="table">
     <tr><!--Títulos das colunas da tabela-->
         <th>@Html.DisplayNameFor(model => model.Id)</th>
         <th>@Html.DisplayNameFor(model => model.Nome)</th>
-        <th>@Html.DisplayNameFor(model => model.Materia)</th>
-        <th></th>
+        <th>@Html.DisplayNameFor(model => model.ProjetoId)</th>
+        <th>@Html.DisplayNameFor(model => model.IntegranteId)</th>
     </tr>
     <!--Looping para escrever os dados na tabela-->
     @foreach (var item in Model)
@@ -33,7 +33,8 @@
         <tr>
             <td>@Html.DisplayFor(modelItem => item.Id) </td>
             <td>@Html.DisplayFor(modelItem => item.Nome) </td>
-            <td>@Html.DisplayFor(modelItem => item.Materia) </td>
+            <td>@Html.DisplayFor(modelItem => item.ProjetoId) </td>
+            <td>@Html.DisplayFor(modelItem => item.IntegranteId) </td>
 
             <td>
                 @Html.ActionLink("Editar", "Edit", new { id = item.Id } ) |

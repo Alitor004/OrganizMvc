@@ -21,17 +21,16 @@
         <dt>@Html.DisplayNameFor(model => model.Inicio)</dt>
         <dd>@Html.DisplayFor(model => model.Inicio)</dd>
 
-        <dt>@Html.DisplayName("Temas")</dt>
+        @*<dt>@Html.DisplayName("Temas")</dt>
         <dd>
             @foreach (var item in Model.Temas)
             {
                 <tr>
-                    <td>@Html.DisplayFor(modelItem => item.Id) </td>
                     <td>@Html.DisplayFor(modelItem => item.Nome) </td>
                     <td>@Html.DisplayFor(modelItem => item.Responsavel.Nome)</td>
                 </tr>
             }
-        </dd>
+        </dd>*@
     </dl>
 </div>
 <p>
